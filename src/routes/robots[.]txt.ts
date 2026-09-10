@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const BASE_URL = "https://tvengenharia.vercel.app";
+import { SITE_URL } from "../lib/site";
 
 export const Route = createFileRoute("/robots.txt")({
   server: {
@@ -23,7 +22,7 @@ export const Route = createFileRoute("/robots.txt")({
           "User-agent: *",
           "Allow: /",
           "",
-          `Sitemap: ${BASE_URL}/sitemap.xml`,
+          `Sitemap: ${SITE_URL}/sitemap.xml`,
           "",
         ].join("\n");
 

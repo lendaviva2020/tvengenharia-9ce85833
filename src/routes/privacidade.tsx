@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
-
-const SITE_URL = "https://tvengenharia.vercel.app";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/privacidade")({
   component: Privacidade,
