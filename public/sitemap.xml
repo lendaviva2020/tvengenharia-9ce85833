@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://tvengenharia.vercel.app/</loc>
+    <loc>https://tvengenharia.com.br/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/web-app-manifest-512x512.png</image:loc>
+      <image:loc>https://tvengenharia.com.br/web-app-manifest-512x512.png</image:loc>
       <image:title>Logo TV Engenharia</image:title>
       <image:caption>TV Engenharia — Tiago Visnieski Engenharia</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/apple-touch-icon.png</image:loc>
+      <image:loc>https://tvengenharia.com.br/apple-touch-icon.png</image:loc>
       <image:title>Ícone TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/hero-casa.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/hero-casa.jpg</image:loc>
       <image:title>Obra residencial — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-1.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-1.jpg</image:loc>
       <image:title>Projeto concluído 1 — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-2.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-2.jpg</image:loc>
       <image:title>Projeto concluído 2 — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-3.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-3.jpg</image:loc>
       <image:title>Projeto concluído 3 — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-4.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-4.jpg</image:loc>
       <image:title>Projeto concluído 4 — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-5.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-5.jpg</image:loc>
       <image:title>Projeto concluído 5 — TV Engenharia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://tvengenharia.vercel.app/imagens/projeto-6.jpg</image:loc>
+      <image:loc>https://tvengenharia.com.br/imagens/projeto-6.jpg</image:loc>
       <image:title>Projeto concluído 6 — TV Engenharia</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://tvengenharia.vercel.app/privacidade</loc>
+    <loc>https://tvengenharia.com.br/privacidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

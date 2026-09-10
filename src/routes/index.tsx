@@ -52,12 +52,12 @@ import obra3 from "@/assets/obra-3.jpg";
 import obra4 from "@/assets/obra-4.jpg";
 import { trackEvent } from "@/lib/analytics";
 import { Logo } from "@/components/Logo";
+import { SITE_URL } from "@/lib/site";
 
 const WA_ANGELICA_BASE = "5545998176765";
 const WA_TIAGO_BASE = "5545999213004";
 const WA_PRE_MESSAGE = "Quero falar sobre um projeto — vim pelo site";
 const WA_DEFAULT_CONTEXT = "Cafelândia/PR";
-const SITE_URL = "https://tvengenharia.vercel.app";
 const COMPANY_MAP_URL = "https://maps.app.goo.gl/7dDmeSB4Z6ajR3cV6";
 const COMPANY_MAP_EMBED_URL =
   "https://www.google.com/maps?q=R.+Paulo+Szerega,+706+-+Centro,+Cafel%C3%A2ndia+-+PR,+85415-000&hl=pt-BR&z=17&output=embed";

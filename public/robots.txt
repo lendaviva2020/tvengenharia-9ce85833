@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://tvengenharia.vercel.app/sitemap.xml
+Sitemap: https://tvengenharia.com.br/sitemap.xml

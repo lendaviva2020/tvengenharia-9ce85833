@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initAnalytics } from "../lib/analytics";
+import { SITE_URL } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -113,9 +114,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Do projeto à entrega das chaves. Engenharia em Cafelândia e região, PR.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://tvengenharia.vercel.app/web-app-manifest-512x512.png" },
+      { property: "og:image", content: `${SITE_URL}/web-app-manifest-512x512.png` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://tvengenharia.vercel.app/web-app-manifest-512x512.png" },
+      { name: "twitter:image", content: `${SITE_URL}/web-app-manifest-512x512.png` },
       {
         name: "google-site-verification",
         content: "vbEnHIMLrPBYpQJDOMBqWJ4pxJirodOE36oZtWREQlc",

@@ -1,16 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const BASE_URL = "https://tvengenharia.vercel.app";
+import { SITE_URL } from "../lib/site";
 
 const BRAND_IMAGES = [
   {
-    loc: `${BASE_URL}/web-app-manifest-512x512.png`,
+    loc: `${SITE_URL}/web-app-manifest-512x512.png`,
     title: "Logo TV Engenharia",
     caption: "TV Engenharia — Tiago Visnieski Engenharia",
   },
   {
-    loc: `${BASE_URL}/apple-touch-icon.png`,
+    loc: `${SITE_URL}/apple-touch-icon.png`,
     title: "Ícone TV Engenharia",
   },
 ];
@@ -24,7 +23,7 @@ const PORTFOLIO_IMAGES = [
   { file: "projeto-5.jpg", title: "Projeto concluído 5 — TV Engenharia" },
   { file: "projeto-6.jpg", title: "Projeto concluído 6 — TV Engenharia" },
 ].map((img) => ({
-  loc: `${BASE_URL}/imagens/${img.file}`,
+  loc: `${SITE_URL}/imagens/${img.file}`,
   title: img.title,
 }));
 
@@ -57,13 +56,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"`,
           `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">`,
           `  <url>`,
-          `    <loc>${BASE_URL}/</loc>`,
+          `    <loc>${SITE_URL}/</loc>`,
           `    <changefreq>weekly</changefreq>`,
           `    <priority>1.0</priority>`,
           imageEntries(homeImages),
           `  </url>`,
           `  <url>`,
-          `    <loc>${BASE_URL}/privacidade</loc>`,
+          `    <loc>${SITE_URL}/privacidade</loc>`,
           `    <changefreq>yearly</changefreq>`,
           `    <priority>0.3</priority>`,
           `  </url>`,
