@@ -877,7 +877,7 @@ function Contato() {
 
     trackEvent("contact_form_submit");
 
-    const texto = `Olá! Meu nome é ${form.nome} e vim pelo site da TV Engenharia.\n\nSou de ${form.bairroCidade}.\n\n${form.mensagem}\n\nPode me chamar no ${form.telefone} — aguardo o retorno!`;
+    const texto = `Olá! Vim pelo site da TV Engenharia e gostaria de saber mais.\n\n${form.mensagem}\n\nMeu nome é ${form.nome}, sou de ${form.bairroCidade}. Pode me chamar no ${form.telefone}!`;
     window.open(whatsappLink(WA_ANGELICA_BASE, texto), "_blank", "noopener");
   };
 
