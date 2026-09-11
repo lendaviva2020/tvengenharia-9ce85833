@@ -741,10 +741,10 @@ function Portfolio() {
 }
 
 const etapasObra = [
-  { img: obra1, w: 1204, h: 1600, etapa: "Fundação", descricao: "Formas e armaduras do baldrame" },
-  { img: obra2, w: 1600, h: 1200, etapa: "Fundação", descricao: "Baldrame concretado e impermeabilizado" },
-  { img: obra3, w: 1440, h: 1920, etapa: "Alvenaria", descricao: "Levantamento das paredes e pilares" },
-  { img: obra4, w: 1440, h: 1920, etapa: "Estrutura", descricao: "Cimbramento da laje e alvenaria em nível" },
+  { img: obra1, w480: obra1w480, w960: obra1w960, w: 1204, h: 1600, etapa: "Fundação", descricao: "Formas e armaduras do baldrame" },
+  { img: obra2, w480: obra2w480, w960: obra2w960, w: 1600, h: 1200, etapa: "Fundação", descricao: "Baldrame concretado e impermeabilizado" },
+  { img: obra3, w480: obra3w480, w960: obra3w960, w: 1440, h: 1920, etapa: "Alvenaria", descricao: "Levantamento das paredes e pilares" },
+  { img: obra4, w480: obra4w480, w960: obra4w960, w: 1440, h: 1920, etapa: "Estrutura", descricao: "Cimbramento da laje e alvenaria em nível" },
 ] as const;
 
 function Bastidores() {
