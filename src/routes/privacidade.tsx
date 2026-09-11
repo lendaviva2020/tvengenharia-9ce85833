@@ -76,10 +76,11 @@ function Privacidade() {
               </h2>
               <ul className="space-y-4">
                 <li>
-                  <strong className="text-foreground">Formulário de contato:</strong> nome, telefone
-                  e mensagem que você preenche. Esses dados não ficam armazenados em nenhum banco de
-                  dados do site — eles são usados apenas para montar uma mensagem que é enviada
-                  diretamente para o WhatsApp da nossa equipe.
+                  <strong className="text-foreground">Formulário de contato:</strong> nome, telefone,
+                  bairro/cidade e mensagem que você preenche. Esses dados não ficam armazenados em
+                  nenhum banco de dados do site — eles são usados apenas para montar uma mensagem
+                  que é enviada diretamente para o WhatsApp da nossa equipe e, em paralelo, para
+                  enviar uma notificação por e-mail para a nossa equipe.
                 </li>
                 <li>
                   <strong className="text-foreground">Dados de navegação:</strong> quando o Google
