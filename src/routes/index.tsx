@@ -810,6 +810,8 @@ function Bastidores() {
           >
             <img
               src={foto.img}
+              srcSet={`${foto.w480} 480w, ${foto.w960} 960w, ${foto.img} ${foto.w}w`}
+              sizes="(min-width: 640px) 384px, 78vw"
               alt={`Obra da Residência Ravena — ${foto.etapa}: ${foto.descricao}`}
               width={foto.w}
               height={foto.h}
