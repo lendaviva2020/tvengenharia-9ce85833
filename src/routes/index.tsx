@@ -47,9 +47,17 @@ import projeto6 from "@/assets/projeto-6.jpg";
 import projeto6w480 from "@/assets/projeto-6-480.jpg";
 import projeto6w960 from "@/assets/projeto-6-960.jpg";
 import obra1 from "@/assets/obra-1.jpg";
+import obra1w480 from "@/assets/obra-1-480.jpg";
+import obra1w960 from "@/assets/obra-1-960.jpg";
 import obra2 from "@/assets/obra-2.jpg";
+import obra2w480 from "@/assets/obra-2-480.jpg";
+import obra2w960 from "@/assets/obra-2-960.jpg";
 import obra3 from "@/assets/obra-3.jpg";
+import obra3w480 from "@/assets/obra-3-480.jpg";
+import obra3w960 from "@/assets/obra-3-960.jpg";
 import obra4 from "@/assets/obra-4.jpg";
+import obra4w480 from "@/assets/obra-4-480.jpg";
+import obra4w960 from "@/assets/obra-4-960.jpg";
 import { trackEvent } from "@/lib/analytics";
 import { Logo } from "@/components/Logo";
 import { SITE_URL } from "@/lib/site";
@@ -733,10 +741,10 @@ function Portfolio() {
 }
 
 const etapasObra = [
-  { img: obra1, w: 1204, h: 1600, etapa: "Fundação", descricao: "Formas e armaduras do baldrame" },
-  { img: obra2, w: 1600, h: 1200, etapa: "Fundação", descricao: "Baldrame concretado e impermeabilizado" },
-  { img: obra3, w: 1440, h: 1920, etapa: "Alvenaria", descricao: "Levantamento das paredes e pilares" },
-  { img: obra4, w: 1440, h: 1920, etapa: "Estrutura", descricao: "Cimbramento da laje e alvenaria em nível" },
+  { img: obra1, w480: obra1w480, w960: obra1w960, w: 1204, h: 1600, etapa: "Fundação", descricao: "Formas e armaduras do baldrame" },
+  { img: obra2, w480: obra2w480, w960: obra2w960, w: 1600, h: 1200, etapa: "Fundação", descricao: "Baldrame concretado e impermeabilizado" },
+  { img: obra3, w480: obra3w480, w960: obra3w960, w: 1440, h: 1920, etapa: "Alvenaria", descricao: "Levantamento das paredes e pilares" },
+  { img: obra4, w480: obra4w480, w960: obra4w960, w: 1440, h: 1920, etapa: "Estrutura", descricao: "Cimbramento da laje e alvenaria em nível" },
 ] as const;
 
 function Bastidores() {
@@ -802,6 +810,8 @@ function Bastidores() {
           >
             <img
               src={foto.img}
+              srcSet={`${foto.w480} 480w, ${foto.w960} 960w, ${foto.img} ${foto.w}w`}
+              sizes="(min-width: 640px) 384px, 78vw"
               alt={`Obra da Residência Ravena — ${foto.etapa}: ${foto.descricao}`}
               width={foto.w}
               height={foto.h}
