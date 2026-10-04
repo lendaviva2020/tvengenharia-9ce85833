@@ -28,6 +28,7 @@ export function useHeroVideo() {
     const desktop = window.matchMedia("(min-width: 768px)");
     let frame = 0;
     let targetTime = 0;
+    let requestedTime = -1;
     let pointerX = 0;
     let pointerY = 0;
     let visible = false;
@@ -35,7 +36,8 @@ export function useHeroVideo() {
 
     const seek = () => {
       if (!desktop.matches || video.seeking || video.readyState < 2) return;
-      if (Math.abs(video.currentTime - targetTime) > 0.025) {
+      if (Math.abs(requestedTime - targetTime) > 0.025) {
+        requestedTime = targetTime;
         video.currentTime = targetTime;
       }
     };
@@ -89,6 +91,7 @@ export function useHeroVideo() {
     };
     const onModeChange = () => {
       video.pause();
+      requestedTime = -1;
       resetPointer();
     };
     const observer = new IntersectionObserver(([entry]) => {
