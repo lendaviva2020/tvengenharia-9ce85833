@@ -8,7 +8,7 @@ export function Hero() {
   const { sectionRef, videoRef, layerRef, enabled, ready } = useHeroVideo();
   return (
     <section ref={sectionRef} id="top" className="hero-scroll-section relative">
-      <div className="diagonal-gold hero-stage relative flex min-h-screen items-center">
+      <div className="diagonal-gold hero-stage relative flex min-h-screen items-center overflow-hidden">
       <div ref={layerRef} className="hero-video-layer absolute inset-0" aria-hidden="true">
       <img
         src={heroPoster}
@@ -17,7 +17,7 @@ export function Hero() {
         height={1280}
         fetchPriority="high"
         loading="eager"
-        className="absolute inset-0 size-full object-cover opacity-55"
+        className="hero-media absolute inset-0 size-full object-cover"
       />
       {enabled && <video
         ref={videoRef}
@@ -28,10 +28,10 @@ export function Hero() {
         preload="auto"
         width={720}
         height={1280}
-        className={`absolute inset-0 size-full object-cover ${ready ? "opacity-55" : "opacity-0"}`}
+        className={`hero-media absolute inset-0 size-full object-cover transition-opacity duration-500 ${ready ? "opacity-100" : "opacity-0"}`}
       />}
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/60" />
+      <div className="hero-shade absolute inset-0" />
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-36 pb-24">
         <p className="mb-6 font-display text-xs uppercase tracking-[0.4em] text-gold">
           Projetos e Soluções · Cafelândia / PR
