@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep Hero media behavior in a dedicated hook, using matchMedia and cleaned-up observers/listeners; this isolates scroll seeking, playback, and motion accessibility from presentation.
+- Import Hero video and poster as real bundled static files, not asset pointers; this keeps media portable to hosting outside Lovable.
