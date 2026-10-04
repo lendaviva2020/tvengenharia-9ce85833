@@ -1,21 +1,36 @@
 import { trackEvent } from "@/lib/analytics";
-import { projeto1, projeto1w480, projeto1w960 } from "@/data/portfolioData";
+import heroVideo from "@/assets/hero-flythrough.mp4";
+import heroPoster from "@/assets/hero-flythrough-poster.jpg";
+import { useHeroVideo } from "@/hooks/use-hero-video";
 import { WA_ANGELICA_BASE, WA_DEFAULT_CONTEXT, WA_PRE_MESSAGE, whatsappLink } from "@/data/siteData";
 
 export function Hero() {
+  const { sectionRef, videoRef, layerRef, enabled, ready } = useHeroVideo();
   return (
-    <section id="top" className="diagonal-gold relative flex min-h-screen items-center">
+    <section ref={sectionRef} id="top" className="hero-scroll-section relative">
+      <div className="diagonal-gold hero-stage relative flex min-h-screen items-center">
+      <div ref={layerRef} className="hero-video-layer absolute inset-0" aria-hidden="true">
       <img
-        src={projeto1}
-        srcSet={`${projeto1w480} 480w, ${projeto1w960} 960w, ${projeto1} 1737w`}
-        sizes="100vw"
-        alt="Residência geminada Jardim Ravena II — projeto e execução TV Engenharia"
-        width={1737}
-        height={905}
+        src={heroPoster}
+        alt=""
+        width={720}
+        height={1280}
         fetchPriority="high"
         loading="eager"
-        className="hero-zoom absolute inset-0 size-full object-cover opacity-55"
+        className="absolute inset-0 size-full object-cover opacity-55"
       />
+      {enabled && <video
+        ref={videoRef}
+        src={heroVideo}
+        poster={heroPoster}
+        muted
+        playsInline
+        preload="auto"
+        width={720}
+        height={1280}
+        className={`absolute inset-0 size-full object-cover ${ready ? "opacity-55" : "opacity-0"}`}
+      />}
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/60" />
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-36 pb-24">
         <p className="mb-6 font-display text-xs uppercase tracking-[0.4em] text-gold">
@@ -46,6 +61,7 @@ export function Hero() {
             Conheça os serviços
           </a>
         </div>
+      </div>
       </div>
     </section>
   );
