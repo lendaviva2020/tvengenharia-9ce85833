@@ -4,7 +4,6 @@ export function useHeroVideo() {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const layerRef = useRef<HTMLDivElement>(null);
-  const playedOnMobile = useRef(false);
   const [enabled, setEnabled] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -27,48 +26,34 @@ export function useHeroVideo() {
 
     const desktop = window.matchMedia("(min-width: 768px)");
     let frame = 0;
-    let targetTime = 0;
-    let requestedTime = -1;
     let pointerX = 0;
     let pointerY = 0;
     let visible = false;
     let disposed = false;
 
-    const seek = () => {
-      if (!desktop.matches || video.seeking || video.readyState < 2) return;
-      if (Math.abs(requestedTime - targetTime) > 0.025) {
-        requestedTime = targetTime;
-        video.currentTime = targetTime;
+    const syncPlayback = () => {
+      video.loop = desktop.matches;
+      if (!visible || (!desktop.matches && video.ended)) {
+        video.pause();
+        return;
       }
-    };
-    const playOnce = () => {
-      if (desktop.matches || !visible || playedOnMobile.current || video.readyState < 2) return;
-      video.currentTime = 0;
+      if (video.readyState < 2 || !video.paused) return;
       void video.play().then(() => {
-        if (disposed) video.pause();
-        else playedOnMobile.current = true;
+        if (disposed || !visible) video.pause();
       }).catch(() => {
-        // Keep the poster visible if the browser blocks muted playback.
+        // The poster stays visible if playback is unavailable.
       });
     };
     const update = () => {
       frame = 0;
-      if (desktop.matches) {
-        video.pause();
-        const bounds = section.getBoundingClientRect();
-        const distance = Math.max(1, bounds.height - window.innerHeight);
-        const progress = Math.min(1, Math.max(0, -bounds.top / distance));
-        if (Number.isFinite(video.duration)) targetTime = progress * video.duration;
-        seek();
-      } else {
+      if (!desktop.matches) {
         pointerX = 0;
         pointerY = 0;
-        playOnce();
       }
-      layer.style.setProperty("--hero-rotate-x", `${-pointerY * 1.5}deg`);
-      layer.style.setProperty("--hero-rotate-y", `${pointerX * 1.5}deg`);
-      layer.style.setProperty("--hero-shift-x", `${pointerX * 8}px`);
-      layer.style.setProperty("--hero-shift-y", `${pointerY * 8}px`);
+      layer.style.setProperty("--hero-rotate-x", `${-pointerY * 0.4}deg`);
+      layer.style.setProperty("--hero-rotate-y", `${pointerX * 0.4}deg`);
+      layer.style.setProperty("--hero-shift-x", `${pointerX * 3}px`);
+      layer.style.setProperty("--hero-shift-y", `${pointerY * 3}px`);
     };
     const schedule = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
@@ -87,40 +72,33 @@ export function useHeroVideo() {
     };
     const onReady = () => {
       setReady(true);
-      schedule();
+      syncPlayback();
     };
     const onModeChange = () => {
-      video.pause();
-      requestedTime = -1;
+      if (desktop.matches && video.ended) video.currentTime = 0;
+      syncPlayback();
       resetPointer();
     };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? false;
-      schedule();
+      syncPlayback();
     }, { threshold: 0.05 });
 
     observer.observe(section);
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule, { passive: true });
     section.addEventListener("pointermove", onPointerMove, { passive: true });
     section.addEventListener("pointerleave", resetPointer);
     desktop.addEventListener("change", onModeChange);
     video.addEventListener("loadeddata", onReady);
-    video.addEventListener("seeked", seek);
     if (video.readyState >= 2) onReady();
-    schedule();
 
     return () => {
       disposed = true;
       window.cancelAnimationFrame(frame);
       observer.disconnect();
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
       section.removeEventListener("pointermove", onPointerMove);
       section.removeEventListener("pointerleave", resetPointer);
       desktop.removeEventListener("change", onModeChange);
       video.removeEventListener("loadeddata", onReady);
-      video.removeEventListener("seeked", seek);
       video.pause();
       layer.style.removeProperty("--hero-rotate-x");
       layer.style.removeProperty("--hero-rotate-y");

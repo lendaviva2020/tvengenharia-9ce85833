@@ -188,19 +188,23 @@
 }
 
 .hero-video-layer {
-  transform: perspective(1200px) translate3d(var(--hero-shift-x, 0px), var(--hero-shift-y, 0px), 0) rotateX(var(--hero-rotate-x, 0deg)) rotateY(var(--hero-rotate-y, 0deg)) scale(1.05);
+  transform: perspective(1200px) translate3d(var(--hero-shift-x, 0px), var(--hero-shift-y, 0px), 0) rotateX(var(--hero-rotate-x, 0deg)) rotateY(var(--hero-rotate-y, 0deg)) scale(1.015);
 }
 
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-  .hero-scroll-section {
-    min-height: 180vh;
-    min-height: 180svh;
+.hero-shade {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--color-background) 88%, transparent) 0%, color-mix(in oklab, var(--color-background) 58%, transparent) 45%, color-mix(in oklab, var(--color-background) 12%, transparent) 100%), linear-gradient(0deg, color-mix(in oklab, var(--color-background) 55%, transparent), transparent 45%);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero-media {
+    object-position: center 54%;
   }
-  .hero-stage {
-    position: sticky;
-    top: 0;
-    min-height: 100vh;
-    min-height: 100svh;
+}
+
+@media (max-width: 767px) {
+  .hero-shade {
+    background: linear-gradient(0deg, color-mix(in oklab, var(--color-background) 84%, transparent), color-mix(in oklab, var(--color-background) 50%, transparent) 65%, color-mix(in oklab, var(--color-background) 32%, transparent));
   }
 }
 
