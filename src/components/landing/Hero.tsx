@@ -1,5 +1,6 @@
 import { trackEvent } from "@/lib/analytics";
 import heroVideo from "@/assets/hero-flythrough.mp4";
+import heroVideoWebm from "@/assets/hero-flythrough.webm";
 import heroPoster from "@/assets/hero-flythrough-poster.jpg";
 import { useHeroVideo } from "@/hooks/use-hero-video";
 import { WA_ANGELICA_BASE, WA_DEFAULT_CONTEXT, WA_PRE_MESSAGE, whatsappLink } from "@/data/siteData";
@@ -21,7 +22,6 @@ export function Hero() {
       />
       {enabled && <video
         ref={videoRef}
-        src={heroVideo}
         poster={heroPoster}
         muted
         playsInline
@@ -29,7 +29,10 @@ export function Hero() {
         width={720}
         height={1280}
         className={`hero-media absolute inset-0 size-full object-cover transition-opacity duration-500 ${ready ? "opacity-100" : "opacity-0"}`}
-      />}
+      >
+        <source src={heroVideoWebm} type="video/webm" />
+        <source src={heroVideo} type="video/mp4" />
+      </video>}
       </div>
       <div className="hero-shade absolute inset-0" />
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-36 pb-24">
