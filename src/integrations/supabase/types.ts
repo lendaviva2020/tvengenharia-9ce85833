@@ -14,13 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ai_brief_controls: {
+        Row: {
+          blocked_message: string | null
+          blocked_status: number | null
+          control_key: string
+          id: string
+          request_count: number
+          window_start: string
+        }
+        Insert: {
+          blocked_message?: string | null
+          blocked_status?: number | null
+          control_key: string
+          id?: string
+          request_count?: number
+          window_start?: string
+        }
+        Update: {
+          blocked_message?: string | null
+          blocked_status?: number | null
+          control_key?: string
+          id?: string
+          request_count?: number
+          window_start?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      claim_ai_brief_request: { Args: { bucket_key: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
