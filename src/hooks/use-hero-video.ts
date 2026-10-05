@@ -32,8 +32,8 @@ export function useHeroVideo() {
     let disposed = false;
 
     const syncPlayback = () => {
-      video.loop = desktop.matches;
-      if (!visible || (!desktop.matches && video.ended)) {
+      video.loop = true;
+      if (!visible) {
         video.pause();
         return;
       }
@@ -75,7 +75,7 @@ export function useHeroVideo() {
       syncPlayback();
     };
     const onModeChange = () => {
-      if (desktop.matches && video.ended) video.currentTime = 0;
+      if (video.ended) video.currentTime = 0;
       syncPlayback();
       resetPointer();
     };
