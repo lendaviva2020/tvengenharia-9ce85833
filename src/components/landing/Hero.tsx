@@ -24,6 +24,7 @@ export function Hero() {
         ref={videoRef}
         poster={heroPoster}
         muted
+        loop
         playsInline
         preload="auto"
         width={720}
