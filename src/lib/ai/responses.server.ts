@@ -1,11 +1,12 @@
 import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, type ModelMessage } from "ai";
+import { streamText, Output, type ModelMessage } from "ai";
+import { briefSchema } from "../brief-schema";
 
 import {
   createLovableAiGatewayRunIdFetch,
   getLovableAiGatewayRunId,
   withLovableAiGatewayRunIdHeader,
-} from "../../ai-apps-gateway-sdk/examples/run-id.ts";
+} from "./run-id.server.ts";
 
 export function createResponsesCall(
   request: Request,
@@ -22,6 +23,8 @@ export function createResponsesCall(
   const reasoning = config.model !== "openai/chat-latest";
   const result = streamText({
     model: provider.responses(config.model),
+    maxRetries: 0,
+    output: Output.object({ schema: briefSchema }),
     messages,
     abortSignal: request.signal,
     providerOptions: {
@@ -30,7 +33,7 @@ export function createResponsesCall(
         ...(reasoning
           ? {
               forceReasoning: true,
-              reasoningEffort: "medium",
+              reasoningEffort: "low",
               reasoningSummary: "auto",
               include: ["reasoning.encrypted_content"],
             }
