@@ -61,4 +61,5 @@ function safeGatewayMessage(body: unknown): string | undefined {
   if (!body || typeof body !== "object") return;
   if ("message" in body && typeof body.message === "string") return body.message.slice(0, 600);
   if ("error" in body && body.error && typeof body.error === "object" && "message" in body.error && typeof body.error.message === "string") return body.error.message.slice(0, 600);
+  return undefined;
 }

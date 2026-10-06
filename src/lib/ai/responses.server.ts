@@ -25,7 +25,8 @@ export function createResponsesCall(
     model: provider.responses(config.model),
     maxRetries: 0,
     output: Output.object({ schema: briefSchema }),
-    messages,
+    instructions: messages.filter((message) => message.role === "system").map((message) => message.content).join("\n"),
+    messages: messages.filter((message) => message.role !== "system"),
     abortSignal: request.signal,
     providerOptions: {
       openai: {
