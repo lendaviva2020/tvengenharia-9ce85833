@@ -61,7 +61,7 @@ function Privacidade() {
           <h1 className="mt-4 text-3xl uppercase leading-tight tracking-wide sm:text-4xl md:text-5xl">
             Aviso de Privacidade
           </h1>
-          <p className="mt-4 text-sm text-muted-foreground">Última atualização: agosto de 2026</p>
+          <p className="mt-4 text-sm text-muted-foreground">Última atualização: outubro de 2026</p>
 
           <div className="mt-10 space-y-8 text-muted-foreground">
             <p>
@@ -83,6 +83,9 @@ function Privacidade() {
                   enviar uma notificação por e-mail para a nossa equipe.
                 </li>
                 <li>
+                  <strong className="text-foreground">Briefing da obra com inteligência artificial:</strong> mediante sua autorização, o relato é enviado ao Lovable AI Gateway e ao provedor de IA para organizar serviço, etapas e informações faltantes. Relatos e briefings não são armazenados no banco do site. Registramos apenas controles operacionais de disponibilidade e limites de uso com identificadores não reversíveis, sem o relato ou o IP original. O envio à equipe pelo WhatsApp depende de um clique seu. Não inclua dados sensíveis.
+                </li>
+                <li>
                   <strong className="text-foreground">Dados de navegação:</strong> quando o Google
                   Analytics estiver ativo, coletamos informações anônimas e agregadas sobre o uso do
                   site (páginas visitadas, tempo de navegação, tipo de dispositivo), por meio de
@@ -97,6 +100,7 @@ function Privacidade() {
               </h2>
               <ul className="list-disc space-y-2 pl-5">
                 <li>Responder ao seu contato e prestar atendimento.</li>
+                <li>Organizar o briefing inicial da sua obra, quando você autorizar a análise por IA.</li>
                 <li>Entender como as pessoas usam o site, para melhorá-lo.</li>
               </ul>
             </section>
@@ -107,7 +111,7 @@ function Privacidade() {
               </h2>
               <p>
                 Não vendemos nem compartilhamos seus dados com terceiros para fins comerciais. Os
-                únicos serviços envolvidos são o{" "}
+                serviços envolvidos incluem Lovable AI Gateway e o provedor de inteligência artificial (para análise opcional do relato), os serviços de e-mail e o{" "}
                 <strong className="text-foreground">WhatsApp</strong> (para onde sua mensagem de
                 contato é enviada) e o <strong className="text-foreground">Google Analytics</strong>{" "}
                 (ferramenta de métricas de uso, quando ativa).

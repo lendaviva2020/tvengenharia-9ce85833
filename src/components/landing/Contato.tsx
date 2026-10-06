@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { SectionTitle } from "./ui";
+import { Briefing } from "./Briefing";
 import { trackEvent } from "@/lib/analytics";
 import {
   COMPANY_MAP_EMBED_URL,
@@ -54,6 +55,7 @@ export function Contato() {
   return (
     <section id="contato" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
       <SectionTitle kicker="Contato" title="Vamos tirar seu projeto do papel?" />
+      <Briefing />
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <p className="text-lg text-muted-foreground">
