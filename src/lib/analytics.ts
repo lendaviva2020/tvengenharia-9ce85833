@@ -1,6 +1,6 @@
 // Measurement ID do GA4: defina VITE_GA_MEASUREMENT_ID na hospedagem para trocar.
 const GA_MEASUREMENT_ID: string =
-  (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined) || "G-DB7E1P9SYN";
+  (import.meta.env["VITE_GA_MEASUREMENT_ID"] as string | undefined) || "G-DB7E1P9SYN";
 export const CONSENT_KEY = "tv-cookie-consent";
 
 export function hasAnalyticsConsent() {
