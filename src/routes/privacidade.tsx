@@ -76,7 +76,7 @@ function Privacidade() {
               </h2>
               <ul className="space-y-4">
                 <li>
-                  <strong className="text-foreground">Formulário de contato:</strong> nome, telefone,
+                  <strong className="text-foreground">Formulário de contato:</strong> nome,
                   cidade, tipo de obra e contato que você preenche. Esses dados não ficam armazenados em
                   nenhum banco de dados do site — eles são usados apenas para montar uma mensagem
                   que é enviada diretamente para o WhatsApp da nossa equipe, após um clique seu.
