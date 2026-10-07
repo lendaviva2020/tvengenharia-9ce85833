@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { SectionTitle } from "./ui";
-import { Briefing } from "./Briefing";
+import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
 import {
   COMPANY_MAP_EMBED_URL,
@@ -13,49 +13,78 @@ import {
   whatsappLink,
 } from "@/data/siteData";
 
-type FormErrors = {
-  nome?: string;
-  telefone?: string;
-  bairroCidade?: string;
-  mensagem?: string;
-};
+const TIPOS_OBRA = [
+  "Construção chave na mão",
+  "Projeto arquitetônico",
+  "Reforma",
+  "Desmembramento / unificação de lotes",
+  "Financiamento",
+  "Outro",
+] as const;
+
+type ContactForm = { nome: string; cidade: string; tipoObra: string; contato: string };
+type FormErrors = Partial<Record<keyof ContactForm, string>>;
+
+const inputClass =
+  "mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 outline-none focus:border-gold";
 
 export function Contato() {
-  const [form, setForm] = useState({ nome: "", telefone: "", bairroCidade: "", mensagem: "" });
+  const [form, setForm] = useState<ContactForm>({ nome: "", cidade: "", tipoObra: "", contato: "" });
   const [mapaAtivo, setMapaAtivo] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [sending, setSending] = useState(false);
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-
+    if (sending) return;
     const nextErrors: FormErrors = {};
-    if (!form.nome.trim() || form.nome.length > 100) nextErrors.nome = "Informe seu nome.";
-    if (!form.telefone.trim() || form.telefone.length > 40) {
-      nextErrors.telefone = "Informe um telefone válido.";
+    if (form.nome.trim().length < 2) nextErrors.nome = "Informe seu nome.";
+    if (form.cidade.trim().length < 2) nextErrors.cidade = "Informe sua cidade.";
+    if (!form.tipoObra) nextErrors.tipoObra = "Selecione o tipo de obra.";
+    if (form.contato.replace(/\D/g, "").length < 10) {
+      nextErrors.contato = "Informe um telefone com DDD.";
     }
-    if (!form.bairroCidade.trim() || form.bairroCidade.length > 120) {
-      nextErrors.bairroCidade = "Informe o bairro e a cidade.";
-    }
-    if (!form.mensagem.trim() || form.mensagem.length > 1000) {
-      nextErrors.mensagem = "Escreva sua mensagem (até 1000 caracteres).";
-    }
-
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
+      toast.error("Confira os campos destacados.");
       return;
     }
     setErrors({});
-
-    trackEvent("contact_form_submit");
-
-    const texto = `Olá! Vim pelo site da TV Engenharia e gostaria de saber mais.\n\n${form.mensagem}\n\nMeu nome é ${form.nome}, sou de ${form.bairroCidade}. Pode me chamar no ${form.telefone}!`;
+    setSending(true);
+    trackEvent("contact_form_submit", { tipo_obra: form.tipoObra });
+    const texto = `Olá! Meu nome é ${form.nome.trim()} e vim pelo site da TV Engenharia.\n\nCidade: ${form.cidade.trim()}\nTipo de obra: ${form.tipoObra}\nContato: ${form.contato.trim()}\n\nAguardo o retorno!`;
     window.open(whatsappLink(WA_ANGELICA_BASE, texto), "_blank", "noopener");
+    toast.success("Abrimos o WhatsApp com sua mensagem. É só tocar em enviar!");
+    window.setTimeout(() => setSending(false), 1500);
   };
+
+  const field = (id: keyof ContactForm, label: string, extra: Record<string, unknown> = {}) => (
+    <div>
+      <label htmlFor={id} className="font-display text-xs uppercase tracking-[0.2em] text-gold">
+        {label}
+      </label>
+      <input
+        id={id}
+        required
+        maxLength={120}
+        value={form[id]}
+        onChange={(e) => setForm({ ...form, [id]: e.target.value })}
+        aria-invalid={errors[id] ? true : undefined}
+        aria-describedby={errors[id] ? `${id}-erro` : undefined}
+        className={inputClass}
+        {...extra}
+      />
+      {errors[id] ? (
+        <p id={`${id}-erro`} role="alert" className="mt-1 text-xs text-destructive">
+          {errors[id]}
+        </p>
+      ) : null}
+    </div>
+  );
 
   return (
     <section id="contato" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
       <SectionTitle kicker="Contato" title="Vamos tirar seu projeto do papel?" />
-      <Briefing />
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <p className="text-lg text-muted-foreground">
@@ -124,107 +153,42 @@ export function Contato() {
         </div>
         <form
           onSubmit={onSubmit}
-          className="space-y-4 rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
+          noValidate
+          className="space-y-4 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] sm:p-8"
         >
+          {field("nome", "Nome", { autoComplete: "name" })}
+          {field("cidade", "Cidade", { autoComplete: "address-level2" })}
           <div>
-            <label
-              htmlFor="nome"
-              className="font-display text-xs uppercase tracking-[0.2em] text-gold"
-            >
-              Nome
+            <label htmlFor="tipoObra" className="font-display text-xs uppercase tracking-[0.2em] text-gold">
+              Tipo de obra
             </label>
-            <input
-              id="nome"
+            <select
+              id="tipoObra"
               required
-              value={form.nome}
-              onChange={(e) => setForm({ ...form, nome: e.target.value })}
-              maxLength={100}
-              aria-invalid={errors.nome ? true : undefined}
-              aria-describedby={errors.nome ? "nome-erro" : undefined}
-              className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 outline-none focus:border-gold"
-            />
-            {errors.nome ? (
-              <p id="nome-erro" role="alert" className="mt-1 text-xs text-destructive">
-                {errors.nome}
+              value={form.tipoObra}
+              onChange={(e) => setForm({ ...form, tipoObra: e.target.value })}
+              aria-invalid={errors.tipoObra ? true : undefined}
+              aria-describedby={errors.tipoObra ? "tipoObra-erro" : undefined}
+              className={inputClass}
+            >
+              <option value="">Selecione…</option>
+              {TIPOS_OBRA.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+            {errors.tipoObra ? (
+              <p id="tipoObra-erro" role="alert" className="mt-1 text-xs text-destructive">
+                {errors.tipoObra}
               </p>
             ) : null}
           </div>
-          <div>
-            <label
-              htmlFor="telefone"
-              className="font-display text-xs uppercase tracking-[0.2em] text-gold"
-            >
-              Telefone
-            </label>
-            <input
-              id="telefone"
-              required
-              inputMode="tel"
-              value={form.telefone}
-              onChange={(e) => setForm({ ...form, telefone: e.target.value })}
-              maxLength={40}
-              aria-invalid={errors.telefone ? true : undefined}
-              aria-describedby={errors.telefone ? "telefone-erro" : undefined}
-              className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 outline-none focus:border-gold"
-            />
-            {errors.telefone ? (
-              <p id="telefone-erro" role="alert" className="mt-1 text-xs text-destructive">
-                {errors.telefone}
-              </p>
-            ) : null}
-          </div>
-          <div>
-            <label
-              htmlFor="bairroCidade"
-              className="font-display text-xs uppercase tracking-[0.2em] text-gold"
-            >
-              Bairro / Cidade
-            </label>
-            <input
-              id="bairroCidade"
-              required
-              value={form.bairroCidade}
-              onChange={(e) => setForm({ ...form, bairroCidade: e.target.value })}
-              maxLength={120}
-              aria-invalid={errors.bairroCidade ? true : undefined}
-              aria-describedby={errors.bairroCidade ? "bairroCidade-erro" : undefined}
-              className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 outline-none focus:border-gold"
-            />
-            {errors.bairroCidade ? (
-              <p id="bairroCidade-erro" role="alert" className="mt-1 text-xs text-destructive">
-                {errors.bairroCidade}
-              </p>
-            ) : null}
-          </div>
-          <div>
-            <label
-              htmlFor="mensagem"
-              className="font-display text-xs uppercase tracking-[0.2em] text-gold"
-            >
-              Mensagem
-            </label>
-            <textarea
-              id="mensagem"
-              rows={4}
-              required
-              value={form.mensagem}
-              onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-              maxLength={1000}
-              aria-invalid={errors.mensagem ? true : undefined}
-              aria-describedby={errors.mensagem ? "mensagem-erro" : undefined}
-              className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 outline-none focus:border-gold"
-            />
-            {errors.mensagem ? (
-              <p id="mensagem-erro" role="alert" className="mt-1 text-xs text-destructive">
-                {errors.mensagem}
-              </p>
-            ) : null}
-          </div>
+          {field("contato", "Contato (WhatsApp)", { inputMode: "tel", autoComplete: "tel", placeholder: "(45) 99999-9999" })}
           <button
             type="submit"
-            className="w-full rounded-full bg-gold px-6 py-4 font-display text-sm uppercase tracking-[0.15em] text-primary-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+            disabled={sending}
+            className="w-full rounded-full bg-gold px-6 py-4 font-display text-sm uppercase tracking-[0.15em] text-primary-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90 disabled:opacity-60"
           >
-            Enviar pelo WhatsApp
+            {sending ? "Abrindo WhatsApp…" : "Enviar pelo WhatsApp"}
           </button>
         </form>
       </div>

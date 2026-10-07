@@ -1,5 +1,11 @@
-// Measurement ID do GA4.
-const GA_MEASUREMENT_ID: string = "G-DB7E1P9SYN";
+// Measurement ID do GA4: defina VITE_GA_MEASUREMENT_ID na hospedagem para trocar.
+const GA_MEASUREMENT_ID: string =
+  (import.meta.env["VITE_GA_MEASUREMENT_ID"] as string | undefined) || "G-DB7E1P9SYN";
+export const CONSENT_KEY = "tv-cookie-consent";
+
+export function hasAnalyticsConsent() {
+  return typeof window !== "undefined" && window.localStorage.getItem(CONSENT_KEY) === "accepted";
+}
 
 declare global {
   interface Window {
@@ -33,7 +39,7 @@ function injectGtag() {
 /** Carrega o gtag só com ID real, depois do load da página (não bloqueia a 1ª renderização). */
 export function initAnalytics() {
   if (typeof window === "undefined") return;
-  if (!isRealGaId(GA_MEASUREMENT_ID)) return;
+  if (!isRealGaId(GA_MEASUREMENT_ID) || !hasAnalyticsConsent()) return;
 
   const schedule = () => {
     const ric = window.requestIdleCallback?.bind(window);

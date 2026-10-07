@@ -10,6 +10,17 @@ export function Footer() {
         <p className="leading-none">
           <Logo width={110} tagline={false} />
         </p>
+        <nav aria-label="Rodapé" className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-display text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          <a href="/#sobre" className="hover:text-gold">Sobre</a>
+          <a href="/#servicos" className="hover:text-gold">Serviços</a>
+          <a href="/#portfolio" className="hover:text-gold">Portfólio</a>
+          <a href="/#contato" className="hover:text-gold">Contato</a>
+        </nav>
+        <div className="flex flex-col items-center gap-1 text-xs text-muted-foreground sm:flex-row sm:gap-4">
+          <a href="tel:+5545999213004" className="hover:text-gold">(45) 99921-3004</a>
+          <a href="tel:+5545998176765" className="hover:text-gold">(45) 99817-6765</a>
+          <a href="mailto:angelicabloinski@hotmail.com" className="break-all hover:text-gold">angelicabloinski@hotmail.com</a>
+        </div>
         <div className="flex items-center gap-6 text-gold">
           <a
             href="https://instagram.com/t.v_engenharia"
