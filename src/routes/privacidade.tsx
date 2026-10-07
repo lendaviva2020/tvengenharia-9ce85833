@@ -77,14 +77,13 @@ function Privacidade() {
               <ul className="space-y-4">
                 <li>
                   <strong className="text-foreground">Formulário de contato:</strong> nome, telefone,
-                  bairro/cidade e mensagem que você preenche. Esses dados não ficam armazenados em
+                  cidade, tipo de obra e contato que você preenche. Esses dados não ficam armazenados em
                   nenhum banco de dados do site — eles são usados apenas para montar uma mensagem
-                  que é enviada diretamente para o WhatsApp da nossa equipe e, em paralelo, para
-                  enviar uma notificação por e-mail para a nossa equipe.
+                  que é enviada diretamente para o WhatsApp da nossa equipe, após um clique seu.
                 </li>
                 <li>
                   <strong className="text-foreground">Dados de navegação:</strong> quando o Google
-                  Analytics estiver ativo, coletamos informações anônimas e agregadas sobre o uso do
+                  Analytics estiver ativo e você aceitar os cookies no aviso exibido no site, coletamos informações anônimas e agregadas sobre o uso do
                   site (páginas visitadas, tempo de navegação, tipo de dispositivo), por meio de
                   cookies, para entender como o site é usado e melhorá-lo.
                 </li>
@@ -107,7 +106,7 @@ function Privacidade() {
               </h2>
               <p>
                 Não vendemos nem compartilhamos seus dados com terceiros para fins comerciais. Os
-                serviços envolvidos incluem os serviços de e-mail e o{" "}
+                serviços envolvidos incluem o{" "}
                 <strong className="text-foreground">WhatsApp</strong> (para onde sua mensagem de
                 contato é enviada) e o <strong className="text-foreground">Google Analytics</strong>{" "}
                 (ferramenta de métricas de uso, quando ativa).
