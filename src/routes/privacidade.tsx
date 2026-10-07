@@ -83,9 +83,6 @@ function Privacidade() {
                   enviar uma notificação por e-mail para a nossa equipe.
                 </li>
                 <li>
-                  <strong className="text-foreground">Briefing da obra com inteligência artificial:</strong> mediante sua autorização, o relato é enviado ao Lovable AI Gateway e ao provedor de IA para organizar serviço, etapas e informações faltantes. Relatos e briefings não são armazenados no banco do site. Registramos apenas controles operacionais de disponibilidade e limites de uso com identificadores não reversíveis, sem o relato ou o IP original. O envio à equipe pelo WhatsApp depende de um clique seu. Não inclua dados sensíveis.
-                </li>
-                <li>
                   <strong className="text-foreground">Dados de navegação:</strong> quando o Google
                   Analytics estiver ativo, coletamos informações anônimas e agregadas sobre o uso do
                   site (páginas visitadas, tempo de navegação, tipo de dispositivo), por meio de
@@ -100,7 +97,6 @@ function Privacidade() {
               </h2>
               <ul className="list-disc space-y-2 pl-5">
                 <li>Responder ao seu contato e prestar atendimento.</li>
-                <li>Organizar o briefing inicial da sua obra, quando você autorizar a análise por IA.</li>
                 <li>Entender como as pessoas usam o site, para melhorá-lo.</li>
               </ul>
             </section>
@@ -111,7 +107,7 @@ function Privacidade() {
               </h2>
               <p>
                 Não vendemos nem compartilhamos seus dados com terceiros para fins comerciais. Os
-                serviços envolvidos incluem Lovable AI Gateway e o provedor de inteligência artificial (para análise opcional do relato), os serviços de e-mail e o{" "}
+                serviços envolvidos incluem os serviços de e-mail e o{" "}
                 <strong className="text-foreground">WhatsApp</strong> (para onde sua mensagem de
                 contato é enviada) e o <strong className="text-foreground">Google Analytics</strong>{" "}
                 (ferramenta de métricas de uso, quando ativa).
