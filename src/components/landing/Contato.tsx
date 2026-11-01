@@ -1,10 +1,11 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, MessageCircle, Star } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Navigation, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionTitle } from "./ui";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
 import {
+  COMPANY_DIRECTIONS_URL,
   COMPANY_MAP_EMBED_URL,
   COMPANY_MAP_URL,
   COMPANY_REVIEW_URL,
@@ -241,6 +242,17 @@ export function Contato() {
             <MapPin aria-hidden="true" />
             Abrir localização no Google Maps
           </a>
+          </Button>
+          <Button asChild variant="outline" className="h-auto whitespace-normal rounded-full border-gold/50 px-6 py-3 text-center font-display text-xs uppercase tracking-[0.15em] text-gold hover:bg-gold/10">
+            <a
+              href={COMPANY_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("google_maps_directions_click")}
+            >
+              <Navigation aria-hidden="true" />
+              Traçar rota até a loja
+            </a>
           </Button>
           <Button asChild variant="outline" className="h-auto whitespace-normal rounded-full border-gold/50 px-6 py-3 text-center font-display text-xs uppercase tracking-[0.15em] text-gold hover:bg-gold/10">
             <a href={COMPANY_REVIEW_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("google_review_click")}>

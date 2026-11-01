@@ -27,7 +27,9 @@ export const COMPANY_MAP_URL = "https://maps.google.com/maps?cid=529989125489434
 export const COMPANY_REVIEW_URL = "https://g.page/r/CUstLSwE_4xJECE/review";
 export const COMPANY_PLACE_ID = "ChIJead7NL9L8pQRSy0tLAT_jEk";
 export const COMPANY_MAP_EMBED_URL =
-  "https://www.google.com/maps?q=R.+Paulo+Szerega,+706+-+Centro,+Cafel%C3%A2ndia+-+PR,+85415-000&hl=pt-BR&z=17&output=embed";
+  "https://www.google.com/maps?cid=5299891254894341451&hl=pt-BR&z=17&output=embed";
+export const COMPANY_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=TV%20Engenharia&destination_place_id=ChIJead7NL9L8pQRSy0tLAT_jEk";
 export const THREADS_URL = "https://www.threads.com/@t.v_engenharia";
 
 export function abs(url: string) {
