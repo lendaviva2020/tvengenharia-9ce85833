@@ -5,6 +5,7 @@ import { SITE_URL } from "@/lib/site";
 import { projeto3, projetos } from "@/data/portfolioData";
 import {
   abs,
+  COMPANY_MAP_URL,
   WA_ANGELICA_BASE,
   WA_DEFAULT_CONTEXT,
   WA_PRE_MESSAGE,
@@ -55,6 +56,7 @@ export const Route = createFileRoute("/")({
           description:
             "Projetos arquitetônicos, construção chave na mão, desmembramento e unificação de lotes.",
           areaServed: "Cafelândia e região, Paraná",
+          hasMap: COMPANY_MAP_URL,
           telephone: ["+5545999213004", "+5545998176765"],
           email: "angelicabloinski@hotmail.com",
           logo: `${SITE_URL}/web-app-manifest-512x512.png`,
@@ -66,6 +68,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "BR",
           },
           sameAs: [
+            COMPANY_MAP_URL,
             "https://instagram.com/t.v_engenharia",
             "https://www.threads.com/@t.v_engenharia",
             "https://www.facebook.com/share/1DijWGi1sU/",

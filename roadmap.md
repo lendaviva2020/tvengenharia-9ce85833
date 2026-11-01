@@ -7,8 +7,8 @@
 - [x] Garantir loop do vídeo no desktop e celular e verificar reinício real
 - [x] Briefing com IA substituído por formulário simples via WhatsApp
 - [x] Checklist pré-lançamento: 404 PT, cookies/LGPD, rodapé completo, analytics via env
+- [x] Vincular localização e avaliações ao site; perfil Google verificado e domínio oficial já associado
 
 ## Open
 - [ ] Gerar e aplicar vídeo horizontal 1080p do mesmo cenário — bloqueado por saldo insuficiente (aproximadamente 6,09 créditos)
-- [ ] Vincular localização e avaliações ao site e conferir presença da empresa nas buscas do Google
 - [ ] Reconectar Google Analytics no novo workspace
