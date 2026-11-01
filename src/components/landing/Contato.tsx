@@ -1,11 +1,13 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SectionTitle } from "./ui";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/analytics";
 import {
   COMPANY_MAP_EMBED_URL,
   COMPANY_MAP_URL,
+  COMPANY_REVIEW_URL,
   WA_ANGELICA_BASE,
   WA_DEFAULT_CONTEXT,
   WA_PRE_MESSAGE,
@@ -228,15 +230,24 @@ export function Contato() {
             </button>
           )}
         </div>
-        <div className="mt-6 text-center">
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <Button asChild variant="outline" className="h-auto whitespace-normal rounded-full border-gold/50 px-6 py-3 text-center font-display text-xs uppercase tracking-[0.15em] text-gold hover:bg-gold/10">
           <a
             href={COMPANY_MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-gold/50 px-6 py-3 font-display text-xs uppercase tracking-[0.15em] text-gold transition-colors hover:bg-gold/10"
+            onClick={() => trackEvent("google_maps_location_click")}
           >
+            <MapPin aria-hidden="true" />
             Abrir localização no Google Maps
           </a>
+          </Button>
+          <Button asChild variant="outline" className="h-auto whitespace-normal rounded-full border-gold/50 px-6 py-3 text-center font-display text-xs uppercase tracking-[0.15em] text-gold hover:bg-gold/10">
+            <a href={COMPANY_REVIEW_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("google_review_click")}>
+              <Star aria-hidden="true" />
+              Avaliar no Google
+            </a>
+          </Button>
         </div>
       </div>
     </section>
