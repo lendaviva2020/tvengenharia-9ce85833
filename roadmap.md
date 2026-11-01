@@ -9,5 +9,6 @@
 - [x] Checklist pré-lançamento: 404 PT, cookies/LGPD, rodapé completo, analytics via env
 
 ## Open
-- [ ] Substituir vídeo vertical por original horizontal de alta resolução — aguardando envio do arquivo pelo usuário
+- [ ] Gerar e aplicar vídeo horizontal 1080p do mesmo cenário — bloqueado por saldo insuficiente (aproximadamente 6,09 créditos)
+- [ ] Vincular localização e avaliações ao site e conferir presença da empresa nas buscas do Google
 - [ ] Reconectar Google Analytics no novo workspace
