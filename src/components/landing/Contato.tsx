@@ -63,11 +63,11 @@ export function Contato() {
 
   const field = (id: keyof ContactForm, label: string, extra: Record<string, unknown> = {}) => (
     <div>
-      <label htmlFor={id} className="font-display text-xs uppercase tracking-[0.2em] text-gold">
+      <label htmlFor={`form-${id}`} className="font-display text-xs uppercase tracking-[0.2em] text-gold">
         {label}
       </label>
       <input
-        id={id}
+        id={`form-${id}`}
         required
         maxLength={120}
         value={form[id]}

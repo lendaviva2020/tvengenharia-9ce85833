@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Done
+- [x] Avaliar buscas Google/IA, corrigir metadados de compartilhamento e identificação dos campos; salvar prioridades de crescimento
 - [x] Simplificar a abertura com nome da marca, uma frase e um único botão
 - [x] Migrar domínio para tvengenharia.com.br e centralizar SITE_URL
 - [x] Substituir fundo do Hero por vídeo local contínuo em todas as telas e poster para movimento reduzido
@@ -10,6 +11,5 @@
 - [x] Vincular localização e avaliações ao site; perfil Google verificado e domínio oficial já associado
 
 ## Open
-- [ ] Avaliar buscas Google/IA, corrigir problemas confirmados e preparar prioridades de crescimento
 - [ ] Gerar e aplicar vídeo horizontal 1080p do mesmo cenário — bloqueado por saldo insuficiente (aproximadamente 6,09 créditos)
 - [ ] Reconectar Google Analytics no novo workspace
