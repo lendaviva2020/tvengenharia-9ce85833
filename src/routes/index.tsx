@@ -39,8 +39,6 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },
-      { property: "og:image", content: abs(projeto3) },
-      { name: "twitter:image", content: abs(projeto3) },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
@@ -63,8 +61,10 @@ export const Route = createFileRoute("/")({
           image: [`${SITE_URL}/web-app-manifest-512x512.png`, abs(projeto3)],
           address: {
             "@type": "PostalAddress",
+            streetAddress: "Rua Paulo Szerega",
             addressLocality: "Cafelândia",
             addressRegion: "PR",
+            postalCode: "85415-000",
             addressCountry: "BR",
           },
           sameAs: [

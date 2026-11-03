@@ -98,6 +98,7 @@ export function Contato() {
             href={whatsappLink(WA_ANGELICA_BASE, WA_PRE_MESSAGE, WA_DEFAULT_CONTEXT)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_contact_click")}
             className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-5 text-center font-display text-sm uppercase tracking-[0.15em] text-primary-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
           >
             <MessageCircle className="size-5" strokeWidth={1.6} />

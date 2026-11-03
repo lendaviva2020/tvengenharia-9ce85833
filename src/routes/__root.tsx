@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initAnalytics } from "../lib/analytics";
-import { SITE_URL } from "../lib/site";
 import { Toaster } from "@/components/ui/sonner";
 import { CookieBanner } from "@/components/CookieBanner";
 
@@ -99,25 +98,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TV Engenharia — Projetos e Soluções em Cafelândia/PR" },
-      {
-        name: "description",
-        content:
-          "TV Engenharia: projeto arquitetônico, construção chave na mão, desmembramento e unificação de lotes em Cafelândia e região, Paraná.",
-      },
       { name: "author", content: "TV Engenharia" },
       { name: "theme-color", content: "#0E1116" },
       { name: "msapplication-TileColor", content: "#0E1116" },
-      { property: "og:title", content: "TV Engenharia — Projetos e Soluções em Cafelândia/PR" },
       { property: "og:site_name", content: "TV Engenharia" },
-      {
-        property: "og:description",
-        content: "Do projeto à entrega das chaves. Engenharia em Cafelândia e região, PR.",
-      },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: `${SITE_URL}/web-app-manifest-512x512.png` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: `${SITE_URL}/web-app-manifest-512x512.png` },
       {
         name: "google-site-verification",
         content: "vbEnHIMLrPBYpQJDOMBqWJ4pxJirodOE36oZtWREQlc",

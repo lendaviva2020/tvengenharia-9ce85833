@@ -10,5 +10,6 @@
 - [x] Vincular localização e avaliações ao site; perfil Google verificado e domínio oficial já associado
 
 ## Open
+- [ ] Avaliar buscas Google/IA, corrigir problemas confirmados e preparar prioridades de crescimento
 - [ ] Gerar e aplicar vídeo horizontal 1080p do mesmo cenário — bloqueado por saldo insuficiente (aproximadamente 6,09 créditos)
 - [ ] Reconectar Google Analytics no novo workspace

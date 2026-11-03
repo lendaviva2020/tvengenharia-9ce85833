@@ -12,3 +12,4 @@
 - Keep Hero media behavior in a dedicated hook, using matchMedia and cleaned-up observers/listeners; this isolates scroll seeking, playback, and motion accessibility from presentation.
 - Import Hero video and poster as real bundled static files, with local WebM and MP4 video sources, not asset pointers; this keeps media portable to hosting outside Lovable and provides a decoding fallback.
 - Load analytics only after explicit cookie consent stored in localStorage; this keeps the site LGPD-compliant.
+- Keep page-specific metadata and canonical links in leaf route heads; omit social image tags when the page has no meaningful absolute HTTPS cover to avoid inherited logo previews.
