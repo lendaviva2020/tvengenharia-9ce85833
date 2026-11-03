@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Done
+- [x] Avaliar buscas Google/IA, corrigir metadados de compartilhamento e identificação dos campos; salvar prioridades de crescimento
 - [x] Simplificar a abertura com nome da marca, uma frase e um único botão
 - [x] Migrar domínio para tvengenharia.com.br e centralizar SITE_URL
 - [x] Substituir fundo do Hero por vídeo local contínuo em todas as telas e poster para movimento reduzido
