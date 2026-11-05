@@ -14,8 +14,8 @@ export function Hero() {
       <img
         src={heroPoster}
         alt=""
-        width={720}
-        height={1280}
+        width={1280}
+        height={720}
         fetchPriority="high"
         loading="eager"
         className="hero-media absolute inset-0 size-full object-cover"
@@ -27,8 +27,8 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-        width={720}
-        height={1280}
+        width={1280}
+        height={720}
         className={`hero-media absolute inset-0 size-full object-cover transition-opacity duration-500 ${ready ? "opacity-100" : "opacity-0"}`}
       >
         <source src={heroVideoWebm} type="video/webm" />

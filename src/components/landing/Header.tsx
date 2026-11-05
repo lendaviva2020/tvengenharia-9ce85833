@@ -30,20 +30,20 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="leading-none" aria-label="TV Engenharia — voltar ao topo">
+        <a href="/" className="leading-none" aria-label="TV Engenharia — voltar ao topo">
           <Logo />
         </a>
         <nav className="hidden items-center gap-8 font-display text-xs uppercase tracking-[0.2em] text-muted-foreground md:flex">
-          <a href="#sobre" className="transition-colors hover:text-gold">
+          <a href="/#sobre" className="transition-colors hover:text-gold">
             Sobre
           </a>
-          <a href="#servicos" className="transition-colors hover:text-gold">
+          <a href="/servicos" className="transition-colors hover:text-gold">
             Serviços
           </a>
-          <a href="#portfolio" className="transition-colors hover:text-gold">
+          <a href="/#portfolio" className="transition-colors hover:text-gold">
             Portfólio
           </a>
-          <a href="#contato" className="transition-colors hover:text-gold">
+          <a href="/contato" className="transition-colors hover:text-gold">
             Contato
           </a>
         </nav>

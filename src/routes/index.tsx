@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
+          "@type": ["ProfessionalService", "GeneralContractor"],
           "@id": `${SITE_URL}/#organizacao`,
           url: `${SITE_URL}/`,
           name: "TV Engenharia — Tiago Visnieski Engenharia",
