@@ -1,6 +1,8 @@
 import { trackEvent } from "@/lib/analytics";
 import heroVideo from "@/assets/hero-flythrough.mp4";
 import heroVideoWebm from "@/assets/hero-flythrough.webm";
+import heroPortraitVideo from "@/assets/hero-flythrough-portrait.mp4";
+import heroPortraitVideoWebm from "@/assets/hero-flythrough-portrait.webm";
 import heroPoster from "@/assets/hero-flythrough-poster.jpg";
 import { useHeroVideo } from "@/hooks/use-hero-video";
 import { WA_ANGELICA_BASE, WA_DEFAULT_CONTEXT, WA_PRE_MESSAGE, whatsappLink } from "@/data/siteData";
@@ -9,7 +11,7 @@ export function Hero() {
   const { sectionRef, videoRef, layerRef, enabled, ready } = useHeroVideo();
   return (
     <section ref={sectionRef} id="top" className="hero-scroll-section relative">
-      <div className="diagonal-gold hero-stage relative flex min-h-screen items-center overflow-hidden">
+      <div className="diagonal-gold hero-stage relative flex items-center overflow-hidden">
       <div ref={layerRef} className="hero-video-layer absolute inset-0" aria-hidden="true">
       <img
         src={heroPoster}
@@ -31,6 +33,16 @@ export function Hero() {
         height={720}
         className={`hero-media absolute inset-0 size-full object-cover transition-opacity duration-500 ${ready ? "opacity-100" : "opacity-0"}`}
       >
+        <source
+          media="(orientation: portrait) and (max-width: 1024px)"
+          src={heroPortraitVideoWebm}
+          type="video/webm"
+        />
+        <source
+          media="(orientation: portrait) and (max-width: 1024px)"
+          src={heroPortraitVideo}
+          type="video/mp4"
+        />
         <source src={heroVideoWebm} type="video/webm" />
         <source src={heroVideo} type="video/mp4" />
       </video>}

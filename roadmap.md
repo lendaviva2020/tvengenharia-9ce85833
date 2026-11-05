@@ -9,6 +9,7 @@
 - [x] Briefing com IA substituído por formulário simples via WhatsApp
 - [x] Checklist pré-lançamento: 404 PT, cookies/LGPD, rodapé completo, analytics via env
 - [x] Vincular localização e avaliações ao site; perfil Google verificado e domínio oficial já associado
+- [x] Adaptar o vídeo do Hero a cada tela: versão vertical para celular/tablet em retrato e altura do Hero em svh
 
 ## Open
 - [ ] Gerar e aplicar vídeo horizontal 1080p do mesmo cenário — bloqueado por saldo insuficiente (aproximadamente 6,09 créditos)
